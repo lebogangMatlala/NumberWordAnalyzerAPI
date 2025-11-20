@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NumberWordAnalyzer.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac71616d670c98d591efc1ac61eb9eecdce73dc7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+175ab3d180ede69f24f6d99a99582fcbc5f636f4")]
 [assembly: System.Reflection.AssemblyProductAttribute("NumberWordAnalyzer.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NumberWordAnalyzer.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
