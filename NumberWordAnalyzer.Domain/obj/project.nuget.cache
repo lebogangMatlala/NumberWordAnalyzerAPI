@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "BN0MsZXi0IMY5xuzgC227ICQvkMF2dh3NMDO7WgCmCt050YNVExzq7hTdL1HRHTdlOSPWS4PZsJ6/4b9IyYu+g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\LebogangMatlala.Lebogang\\Desktop\\NumberWordAnalyzerAPI\\NumberWordAnalyzer.Domain\\NumberWordAnalyzer.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\LebogangMatlala.Lebogang\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\10.0.0\\microsoft.extensions.caching.abstractions.10.0.0.nupkg.sha512",
+    "C:\\Users\\LebogangMatlala.Lebogang\\.nuget\\packages\\microsoft.extensions.caching.memory\\10.0.0\\microsoft.extensions.caching.memory.10.0.0.nupkg.sha512",
+    "C:\\Users\\LebogangMatlala.Lebogang\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.0\\microsoft.extensions.dependencyinjection.abstractions.10.0.0.nupkg.sha512",
+    "C:\\Users\\LebogangMatlala.Lebogang\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.0\\microsoft.extensions.logging.abstractions.10.0.0.nupkg.sha512",
+    "C:\\Users\\LebogangMatlala.Lebogang\\.nuget\\packages\\microsoft.extensions.options\\10.0.0\\microsoft.extensions.options.10.0.0.nupkg.sha512",
+    "C:\\Users\\LebogangMatlala.Lebogang\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.0\\microsoft.extensions.primitives.10.0.0.nupkg.sha512",
+    "C:\\Users\\LebogangMatlala.Lebogang\\.nuget\\packages\\system.diagnostics.diagnosticsource\\10.0.0\\system.diagnostics.diagnosticsource.10.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
