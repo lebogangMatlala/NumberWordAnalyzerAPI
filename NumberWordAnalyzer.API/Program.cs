@@ -20,12 +20,11 @@ builder.Services.AddScoped<INumberWordAnalyzerService, NumberWordAnalyzerService
 var app = builder.Build();
 
 // Swagger UI
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
