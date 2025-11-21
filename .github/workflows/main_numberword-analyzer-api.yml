@@ -21,19 +21,19 @@ jobs:
           dotnet-version: '8.x'
 
       - name: Restore dependencies
-        run: dotnet restore NumberWordAnalyzer.API/NumberWordAnalyzer.sln
+        run: dotnet restore NumberWordAnalyzer.sln
 
       - name: Build solution
-        run: dotnet build NumberWordAnalyzer.API/NumberWordAnalyzer.sln --configuration Release --no-restore
+        run: dotnet build NumberWordAnalyzer.sln --configuration Release --no-restore
 
       - name: Publish Web API
-        run: dotnet publish NumberWordAnalyzer.API/NumberWordAnalyzer.API.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish NumberWordAnalyzer.API/NumberWordAnalyzer.API.csproj -c Release -o ./publish
 
       - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
         with:
           name: dotnet-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: ./publish
 
   deploy:
     runs-on: windows-latest
@@ -47,10 +47,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: dotnet-app
+          path: ./publish
 
       - name: Login to Azure
         uses: azure/login@v2
         with:
+          auth-type: SERVICE_PRINCIPAL
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
@@ -60,4 +62,4 @@ jobs:
         with:
           app-name: 'numberword-analyzer-api'
           slot-name: 'Production'
-          package: ${{env.DOTNET_ROOT}}/myapp
+          package: ./publish
