@@ -55,7 +55,6 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
-          client-secret: ${{ secrets.AZUREAPPSERVICE_CLIENTSECRET }}
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
@@ -63,6 +62,7 @@ jobs:
           app-name: 'numberword-analyzer-api'
           slot-name: 'Production'
           package: ./publish
+
 
 
 
