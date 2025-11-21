@@ -18,17 +18,17 @@ namespace NumberWordAnalyzer.Application.Services
 
         public NumberWordAnalyzerService(IMemoryCache cache, ILogger<NumberWordAnalyzerService> logger)
         {
-            _cache = cache;
-            _logger = logger;
+            _cache = cache ?? throw new ArgumentNullException(nameof(cache));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public NumberWordResult Analyze(string input)
+        public NumberWordResult Analyze(string? input)
         {
             if (string.IsNullOrWhiteSpace(input))
-                return new NumberWordResult();
+                return new NumberWordResult(); // safe
 
             // Check cache first
-            if (_cache.TryGetValue(input, out NumberWordResult cachedResult))
+            if (_cache.TryGetValue(input, out NumberWordResult? cachedResult) && cachedResult != null)
             {
                 _logger.LogInformation("Cache hit for input of length {Length}", input.Length);
                 return cachedResult;
@@ -36,12 +36,12 @@ namespace NumberWordAnalyzer.Application.Services
 
             _logger.LogInformation("Analyzing input of length {Length}", input.Length);
 
-            var result = new NumberWordResult();
+            var result = new NumberWordResult(); // ensure Counts is initialized in NumberWordResult
             string lower = input.ToLower();
 
             // Count letters efficiently
             var letterCounts = lower
-                .AsParallel() // parallel for large inputs
+                .AsParallel()
                 .Where(char.IsLetter)
                 .GroupBy(c => c)
                 .ToDictionary(g => g.Key, g => g.Count());
@@ -68,12 +68,15 @@ namespace NumberWordAnalyzer.Application.Services
         private int CountWordOccurrences(Dictionary<char, int> letterCounts, string word)
         {
             int minCount = int.MaxValue;
+
             foreach (var c in word)
             {
                 if (!letterCounts.ContainsKey(c) || letterCounts[c] <= 0)
                     return 0;
+
                 minCount = Math.Min(minCount, letterCounts[c]);
             }
+
             return minCount;
         }
     }
